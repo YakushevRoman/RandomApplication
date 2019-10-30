@@ -6,7 +6,11 @@ import android.util.Log;
 
 import com.example.randomapplication.R;
 import com.example.randomapplication.retrofit.Models.Example;
+import com.example.randomapplication.retrofit.Models.Result;
 import com.example.randomapplication.retrofit.NetworkService;
+
+import java.util.List;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -36,7 +40,15 @@ public class MainActivity extends AppCompatActivity {
                         .enqueue(new Callback<Example>() {
                             @Override
                             public void onResponse(Call<Example> call, Response<Example> response) {
-                                Log.d(TAG, "onResponse: " );
+                                Example example =response.body();
+                                List<Result> result = example.getResults();
+                                for (Result r: result) {
+                                    String picture = r.getPicture().getLarge();
+                                    String name = r.getName().getFirst()
+                                            + r.getName().getTitle()
+                                            +r.getName().getLast();
+                                    Log.d(TAG, "onResponse: " + picture + " name" + name +"\n");
+                                }
                             }
 
                             @Override
