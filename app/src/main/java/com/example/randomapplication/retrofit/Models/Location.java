@@ -8,16 +8,19 @@ public class Location {
 
     @SerializedName("street")
     @Expose
-    private String street;
+    private Street street;
     @SerializedName("city")
     @Expose
     private String city;
     @SerializedName("state")
     @Expose
     private String state;
+    @SerializedName("country")
+    @Expose
+    private String country;
     @SerializedName("postcode")
     @Expose
-    private String postcode;
+    private int postcode;
     @SerializedName("coordinates")
     @Expose
     private Coordinates coordinates;
@@ -25,11 +28,11 @@ public class Location {
     @Expose
     private Timezone timezone;
 
-    public String getStreet() {
+    public Street getStreet() {
         return street;
     }
 
-    public void setStreet(String street) {
+    public void setStreet(Street street) {
         this.street = street;
     }
 
@@ -49,11 +52,19 @@ public class Location {
         this.state = state;
     }
 
-    public String getPostcode() {
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
+    public int getPostcode() {
         return postcode;
     }
 
-    public void setPostcode(String postcode) {
+    public void setPostcode(int postcode) {
         this.postcode = postcode;
     }
 

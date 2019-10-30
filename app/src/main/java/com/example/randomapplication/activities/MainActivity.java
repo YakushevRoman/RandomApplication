@@ -20,6 +20,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Log.d(TAG, "onCreate: " );
 
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Log.d(TAG, "onStart: " );
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -35,12 +41,11 @@ public class MainActivity extends AppCompatActivity {
 
                             @Override
                             public void onFailure(Call<Example> call, Throwable t) {
-                                Log.d(TAG, "onFailure: "+ call.request().body() );
+                                Log.d(TAG, "onFailure: " + t.getMessage() );
                             }
                         });
 
             }
         }).start();
-
     }
 }
