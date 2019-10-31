@@ -3,27 +3,27 @@ package com.example.randomapplication.retrofit;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class NetworkService {
+public class RandomService {
 
-    private static NetworkService mInstance;
+    private static RandomService mInstance;
     private static final String BASE_URL = "https://randomuser.me";
     private Retrofit mRetrofit;
 
-    private NetworkService() {
+    private RandomService() {
         mRetrofit = new Retrofit.Builder()
                 .baseUrl(BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
     }
 
-    public static NetworkService getInstance() {
+    public static RandomService getInstance() {
         if (mInstance == null) {
-            mInstance = new NetworkService();
+            mInstance = new RandomService();
         }
         return mInstance;
     }
 
-    public RandomRetrofitApi getJSONApi() {
+    public RandomRetrofitApi RandomRetrofitApi() {
         return mRetrofit.create(RandomRetrofitApi.class);
     }
 }

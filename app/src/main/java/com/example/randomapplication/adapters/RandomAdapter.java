@@ -2,26 +2,34 @@ package com.example.randomapplication.adapters;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import com.example.randomapplication.R;
-import com.example.randomapplication.models.UserModel;
-
+import com.example.randomapplication.interfaces.IClickRecycler;
+import com.example.randomapplication.retrofit.Models.Result;
+import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.example.randomapplication.activities.MainActivity.TAG;
+
 public class RandomAdapter  extends RecyclerView.Adapter<RandomAdapter.RandomHolder> {
-    private List<UserModel> userList;
+    private List<Result> userList;
+    private  IClickRecycler iClickRecycler;
 
     public RandomAdapter() {
         this.userList = new ArrayList<>();
     }
 
-    public void setListUsersAdapter (List<UserModel> newListUsers){
+    public void  setUserInformation (IClickRecycler iClickRecycler){
+        this.iClickRecycler = iClickRecycler;
+    }
+
+    public void setListUsersAdapter (List<Result> newListUsers){
         userList.clear();
         userList.addAll(newListUsers);
         notifyDataSetChanged();
@@ -54,9 +62,21 @@ public class RandomAdapter  extends RecyclerView.Adapter<RandomAdapter.RandomHol
             textViewUser = itemView.findViewById(R.id.txt_list_users_recycler);
         }
 
-        void bindListUser(UserModel userModel){
-            imageViewUser.setImageResource(R.drawable.ic_launcher_background);
-            textViewUser.setText(userModel.getName());
+        void bindListUser(final Result result){
+            Picasso.get()
+                    .load(result.getPicture().getLarge())
+                    .into(imageViewUser);
+            textViewUser.setText(String
+                    .format("User:\n%s %s %s ",
+                            result.getName().getTitle(),
+                            result.getName().getFirst(),
+                            result.getName().getLast()));
+            textViewUser.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    iClickRecycler.clickRecyclerItem(result);
+                }
+            });
         }
     }
 }
