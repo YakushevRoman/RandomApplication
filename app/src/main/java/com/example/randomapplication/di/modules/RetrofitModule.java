@@ -22,7 +22,7 @@ public class RetrofitModule {
         return new Retrofit.Builder()
                 .baseUrl("https://randomuser.me")
                 .addConverterFactory(GsonConverterFactory.create())
-                .addCallAdapterFactory(RxJava2CallAdapterFactory.createWithScheduler(Schedulers.newThread()))
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.createWithScheduler(Schedulers.io()))
                 .build();
     }
 

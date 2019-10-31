@@ -13,7 +13,6 @@ import com.example.randomapplication.views.IListUsersView;
 import java.util.List;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
-import io.reactivex.schedulers.Schedulers;
 /**
  *
  */
@@ -31,18 +30,18 @@ public  class ListUsersPresenter
     }
 
 
-    private void  getListUsersPresenter(){
-       Disposable disposable = AppRandom
-               .getRandomComponent()
-               .getRandomRetrofitApi()
-               .getStringResponseRx(1)
-               .subscribeOn(Schedulers.io())
-               .observeOn(AndroidSchedulers.mainThread())
-               .subscribe(example -> {
-                   List<Result> result = example.getResults();
-                   Log.d(GlobalEnum.TAG.getValue(), "onResponse: " + result.size());
-                   getViewState().showListUsers(result, randomAdapter);
-               });
+    private void getListUsersPresenter() {
+        Disposable disposable = AppRandom
+                .getRandomComponent()
+                .getRandomRetrofitApi()
+                .getStringResponseRx(20)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(example -> {
+                    List<Result> result = example.getResults();
+                    Log.d(GlobalEnum.TAG.getValue(), "onResponse: " + result.size());
+                    getViewState().showListUsers(result, randomAdapter);
+                });
         disposable.isDisposed();
     }
+
 }

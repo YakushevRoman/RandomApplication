@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="margin">15dp</dimen>
+    <dimen name="margin">10dp</dimen>
     <dimen name="text_size">20sp</dimen>
+    <dimen name="image_start_width">100dp</dimen>
+    <dimen name="image_info_height">300dp</dimen>
 </resources>
