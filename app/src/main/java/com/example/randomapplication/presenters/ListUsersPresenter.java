@@ -1,5 +1,7 @@
 package com.example.randomapplication.presenters;
-
+/*
+ *
+ */
 import android.util.Log;
 import com.arellomobile.mvp.InjectViewState;
 import com.arellomobile.mvp.MvpPresenter;
@@ -12,11 +14,15 @@ import java.util.List;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
-
+/**
+ *
+ */
 @InjectViewState
-public class ListUsersPresenter extends MvpPresenter <IListUsersView> {
+public  class ListUsersPresenter
+        extends MvpPresenter <IListUsersView> {
 
     private RandomAdapter randomAdapter;
+
     public ListUsersPresenter() {
         randomAdapter = AppRandom
                 .getRandomComponent()

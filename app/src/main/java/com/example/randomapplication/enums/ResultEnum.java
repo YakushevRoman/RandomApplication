@@ -1,6 +1,9 @@
 package com.example.randomapplication.enums;
-
+/**
+ *
+ */
 public enum ResultEnum {
+
     NAME("Name"),
     DATE("Date"),
     AGE("Age"),
@@ -18,8 +21,5 @@ public enum ResultEnum {
         return value;
     }
 
-    public void setValue(String value) {
-        this.value = value;
-    }
 }
 

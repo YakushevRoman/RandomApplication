@@ -1,17 +1,18 @@
 package com.example.randomapplication.di.modules;
-
+/*
+ *
+ */
 import com.example.randomapplication.retrofit.RandomRetrofitApi;
-
 import javax.inject.Singleton;
-
 import dagger.Module;
 import dagger.Provides;
-import io.reactivex.Scheduler;
 import io.reactivex.schedulers.Schedulers;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
-
+/**
+ *
+ */
 @Module
 public class RetrofitModule {
 
@@ -30,4 +31,5 @@ public class RetrofitModule {
     RandomRetrofitApi getRandomRetrofitApi(Retrofit retrofit){
         return retrofit.create(RandomRetrofitApi.class);
     }
+
 }

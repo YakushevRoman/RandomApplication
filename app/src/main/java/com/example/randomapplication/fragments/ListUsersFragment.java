@@ -1,5 +1,7 @@
 package com.example.randomapplication.fragments;
-
+/*
+ *
+ */
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -22,14 +24,16 @@ import com.example.randomapplication.presenters.ListUsersPresenter;
 import com.example.randomapplication.retrofit.Models.Result;
 import com.example.randomapplication.views.IListUsersView;
 import java.util.List;
-
-
+/**
+ *
+ */
 public  class ListUsersFragment
         extends MvpAppCompatFragment
         implements IListUsersView, IListUserFragment {
 
     @InjectPresenter
     ListUsersPresenter listUsersPresenter;
+
     private RecyclerView recyclerView;
 
     @Override
@@ -41,7 +45,6 @@ public  class ListUsersFragment
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         return inflater.inflate(R.layout.list_users_fragment, container, false);
-
     }
 
     @Override
@@ -65,9 +68,9 @@ public  class ListUsersFragment
     @Override
     public Bundle setBundle(Result result) {
         Bundle bundle = new Bundle();
-        bundle.putString(ResultEnum.NAME.getValue(), String.format("Name   : %s %s %s",result.getName().getTitle(),result.getName().getFirst(),result.getName().getLast()));
-        bundle.putString(ResultEnum.AGE.getValue(), String.format( "Age    : %s", result.getRegistered().getAge()));
-        bundle.putString(ResultEnum.DATE.getValue(), String.format("Date   : %s", result.getRegistered().getDate()));
+        bundle.putString(ResultEnum.NAME.getValue(), String.format( "Name  : %s %s %s", result.getName().getTitle(), result.getName().getFirst(), result.getName().getLast()));
+        bundle.putString(ResultEnum.AGE.getValue(), String.format(  "Age   : %s", result.getRegistered().getAge()));
+        bundle.putString(ResultEnum.DATE.getValue(), String.format( "Date  : %s", result.getRegistered().getDate()));
         bundle.putString(ResultEnum.EMAIL.getValue(), String.format("Email : %s", result.getEmail()));
         bundle.putString(ResultEnum.PHONE.getValue(), String.format("Phone : %s", result.getPhone()));
         bundle.putString(ResultEnum.IMAGE_URL.getValue(), result.getPicture().getLarge());
@@ -79,7 +82,6 @@ public  class ListUsersFragment
         FragmentManager fragmentManager = getFragmentManager();
         assert fragmentManager != null;
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        Fragment fragmentContainer = fragmentManager.findFragmentById(R.id.fragment_container);
         if (fragmentManager.findFragmentById(R.id.fragment_container) != null){
             fragment.setArguments(setBundle(result));
             fragmentTransaction
