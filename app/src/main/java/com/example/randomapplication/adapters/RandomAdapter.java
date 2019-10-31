@@ -74,6 +74,7 @@ public  class RandomAdapter
                             result.getName().getFirst(),
                             result.getName().getLast()));
             textViewUser.setOnClickListener(v -> iClickRecycler.clickRecyclerItem(result));
+            imageViewUser.setOnClickListener(v -> iClickRecycler.clickRecyclerItem(result));
         }
     }
 }

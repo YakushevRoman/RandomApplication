@@ -7,7 +7,8 @@ import com.example.randomapplication.di.modules.ContextModule;
 /**
  *
  */
-public class AppRandom  extends Application {
+public  class AppRandom
+        extends Application {
 
     private static RandomComponent randomComponent;
 
