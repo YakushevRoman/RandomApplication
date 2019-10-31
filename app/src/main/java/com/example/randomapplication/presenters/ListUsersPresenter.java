@@ -35,7 +35,7 @@ public  class ListUsersPresenter
        Disposable disposable = AppRandom
                .getRandomComponent()
                .getRandomRetrofitApi()
-               .getStringResponseRx(10)
+               .getStringResponseRx(1)
                .subscribeOn(Schedulers.io())
                .observeOn(AndroidSchedulers.mainThread())
                .subscribe(example -> {

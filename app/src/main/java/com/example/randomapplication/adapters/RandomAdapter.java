@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.example.randomapplication.R;
+import com.example.randomapplication.interfaces.IAddFunctionalRecycler;
 import com.example.randomapplication.interfaces.IClickRecycler;
 import com.example.randomapplication.retrofit.Models.Result;
 import com.squareup.picasso.Picasso;
@@ -19,19 +20,23 @@ import java.util.List;
  *
  */
 public  class RandomAdapter
-        extends RecyclerView.Adapter<RandomAdapter.RandomHolder> {
+        extends RecyclerView.Adapter<RandomAdapter.RandomHolder>
+        implements IAddFunctionalRecycler {
 
     private List<Result> userList;
     private  IClickRecycler iClickRecycler;
 
     public RandomAdapter() {
         this.userList = new ArrayList<>();
+
     }
 
+    @Override
     public void  setUserInformation (IClickRecycler iClickRecycler){
         this.iClickRecycler = iClickRecycler;
     }
 
+    @Override
     public void setListUsersAdapter (List<Result> newListUsers){
         userList.clear();
         userList.addAll(newListUsers);

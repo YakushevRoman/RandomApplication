@@ -68,11 +68,11 @@ public  class ListUsersFragment
     @Override
     public Bundle setBundle(Result result) {
         Bundle bundle = new Bundle();
-        bundle.putString(ResultEnum.NAME.getValue(), String.format( "Name  : %s %s %s", result.getName().getTitle(), result.getName().getFirst(), result.getName().getLast()));
-        bundle.putString(ResultEnum.AGE.getValue(), String.format(  "Age   : %s", result.getRegistered().getAge()));
-        bundle.putString(ResultEnum.DATE.getValue(), String.format( "Date  : %s", result.getRegistered().getDate()));
-        bundle.putString(ResultEnum.EMAIL.getValue(), String.format("Email : %s", result.getEmail()));
-        bundle.putString(ResultEnum.PHONE.getValue(), String.format("Phone : %s", result.getPhone()));
+        bundle.putString(ResultEnum.NAME.getValue(), String.format( "%s %s %s", result.getName().getTitle(), result.getName().getFirst(), result.getName().getLast()));
+        bundle.putString(ResultEnum.AGE.getValue(), String.format(  "%s", result.getRegistered().getAge()));
+        bundle.putString(ResultEnum.DATE.getValue(), String.format( "%s", result.getRegistered().getDate()));
+        bundle.putString(ResultEnum.EMAIL.getValue(), String.format("%s", result.getEmail()));
+        bundle.putString(ResultEnum.PHONE.getValue(), String.format("%s", result.getPhone()));
         bundle.putString(ResultEnum.IMAGE_URL.getValue(), result.getPicture().getLarge());
         return bundle;
     }

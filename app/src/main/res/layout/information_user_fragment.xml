@@ -2,7 +2,8 @@
 <LinearLayout android:layout_height="match_parent"
     android:layout_width="match_parent"
     android:orientation="vertical"
-    xmlns:android="http://schemas.android.com/apk/res/android" >
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@drawable/gradient">
 
     <ImageView
         android:id="@+id/image_information"
@@ -23,7 +24,12 @@
         android:layout_marginTop="@dimen/margin"
         android:layout_marginEnd="@dimen/margin"
         android:layout_marginBottom="@dimen/margin"
-        android:padding="@dimen/margin"/>
+        android:padding="@dimen/margin"
+        android:textStyle="bold"
+        android:shadowColor="@color/colorAccent"
+        android:shadowDx="2"
+        android:shadowDy="2"
+        android:shadowRadius="5"/>
 
 </LinearLayout>
 
