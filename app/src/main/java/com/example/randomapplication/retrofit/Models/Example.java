@@ -10,6 +10,7 @@ public class Example {
     @SerializedName("results")
     @Expose
     private List<Result> results = null;
+
     @SerializedName("info")
     @Expose
     private Info info;

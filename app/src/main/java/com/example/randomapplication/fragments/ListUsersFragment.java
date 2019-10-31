@@ -52,16 +52,14 @@ public  class ListUsersFragment
 
 
     @Override
-    public void showListUsers(List<Result> resultUserList) {
+    public void showListUsers(List<Result> resultUserList, RandomAdapter randomAdapter) {
         recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
-        final RandomAdapter randomAdapter = new RandomAdapter();
         randomAdapter.setListUsersAdapter(resultUserList);
         randomAdapter.setUserInformation(result -> {
             Fragment fragmentInformation = AppRandom.getRandomComponent().getInformationFragment();
             replaceFragment(fragmentInformation,result);
         });
         recyclerView.setAdapter(randomAdapter);
-
     }
 
     @Override
@@ -82,7 +80,7 @@ public  class ListUsersFragment
         assert fragmentManager != null;
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         Fragment fragmentContainer = fragmentManager.findFragmentById(R.id.fragment_container);
-        if (fragmentContainer != null){
+        if (fragmentManager.findFragmentById(R.id.fragment_container) != null){
             fragment.setArguments(setBundle(result));
             fragmentTransaction
                     .replace(R.id.fragment_container, fragment)

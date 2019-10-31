@@ -1,8 +1,9 @@
 package com.example.randomapplication.adapters;
-
+/*
+ *
+ */
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,10 +15,12 @@ import com.example.randomapplication.retrofit.Models.Result;
 import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 import java.util.List;
+/**
+ *
+ */
+public  class RandomAdapter
+        extends RecyclerView.Adapter<RandomAdapter.RandomHolder> {
 
-import static com.example.randomapplication.activities.MainActivity.TAG;
-
-public class RandomAdapter  extends RecyclerView.Adapter<RandomAdapter.RandomHolder> {
     private List<Result> userList;
     private  IClickRecycler iClickRecycler;
 
@@ -63,20 +66,14 @@ public class RandomAdapter  extends RecyclerView.Adapter<RandomAdapter.RandomHol
         }
 
         void bindListUser(final Result result){
-            Picasso.get()
+            Picasso .get()
                     .load(result.getPicture().getLarge())
                     .into(imageViewUser);
-            textViewUser.setText(String
-                    .format("User:\n%s %s %s ",
+            textViewUser.setText(String.format("User:\n%s %s %s ",
                             result.getName().getTitle(),
                             result.getName().getFirst(),
                             result.getName().getLast()));
-            textViewUser.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    iClickRecycler.clickRecyclerItem(result);
-                }
-            });
+            textViewUser.setOnClickListener(v -> iClickRecycler.clickRecyclerItem(result));
         }
     }
 }
