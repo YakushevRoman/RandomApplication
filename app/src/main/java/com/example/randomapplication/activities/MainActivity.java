@@ -35,7 +35,6 @@ public  class MainActivity
         if (fragmentManager.findFragmentById(R.id.fragment_container) == null){
             fragmentTransaction
                     .add(R.id.fragment_container, fragment)
-                    .addToBackStack(null)
                     .commit();
         }
     }
