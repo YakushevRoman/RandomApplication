@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'com.google.protobuf'
 
 android {
     compileSdkVersion 28
@@ -62,4 +63,8 @@ dependencies {
 
     // picasso
     implementation 'com.squareup.picasso:picasso:2.71828'
+
+    // protobuff
+    implementation 'com.google.protobuf:protobuf-lite:3.0.0'
+    implementation 'com.google.protobuf:protobuf-java:3.5.1'
 }
